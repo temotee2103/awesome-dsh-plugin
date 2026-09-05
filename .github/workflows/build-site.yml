@@ -31,6 +31,9 @@ concurrency:
 
 jobs:
   build:
+    # Forks have no GitHub Pages site, so deploy-pages 404s there. The site is
+    # owned by the upstream repo — only run this workflow on upstream.
+    if: github.repository == 'awesome-dsh-plugin/awesome-dsh-plugin'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
